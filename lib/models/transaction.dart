@@ -2,7 +2,7 @@ import '../logic/account.dart';
 
 abstract class Transaction {
   String id;
-  int amount;
+  double amount;
 
   Transaction(this.id, this.amount);
 

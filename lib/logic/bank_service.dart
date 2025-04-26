@@ -40,7 +40,7 @@ class BankService {
     return acc.number;
   }
 
-  int getBalance(String account) {
+  double getBalance(String account) {
     if(accounts[account] != null) {
       return accounts[account]!.balance;
     } else {
@@ -48,7 +48,7 @@ class BankService {
     }
   }
 
-  void deposit(account, int amount) {
+  void deposit(account, double amount) {
     if(accounts[account] != null) {
       try {
         Transaction trans = DepositTransaction(generateTransactionId(), amount);
@@ -62,7 +62,7 @@ class BankService {
     }
   }
 
-  void withdraw(account, int amount) {
+  void withdraw(account, double amount) {
     if(accounts[account] != null) {
       try {
         Transaction trans = WithdrawalTransaction(generateTransactionId(), amount);
@@ -76,7 +76,7 @@ class BankService {
     }
   }
 
-  void transfer(sender, recipient, int amount) {
+  void transfer(sender, recipient, double amount) {
     if(accounts[sender] != null && accounts[recipient] != null) {
       try {
         Transaction trans = TransferTransaction(generateTransactionId(), amount, accounts[recipient]!);
