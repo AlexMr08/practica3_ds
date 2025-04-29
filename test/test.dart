@@ -90,14 +90,14 @@ void main() {
     test('txId genera identificadores únicos', () {
       final bank = BankService();
       final acc = bank.createAccount();
-      for (var i = 0; i < 100; i++) {
+      for (var i = 0; i < 1296; i++) {
         bank.deposit(acc, 100);
       }
 
-      //Es un mapa con la id como indice por lo que la longitud es la cantidad de indices
+      //Es un mapa con la id como indice por lo que la longitud es la cantidad de indices distintos
       //La cantidad de caracteres del generador esta puesta a 2 para que estemos seguros
-      //aunque en el mundo real usaria muchos mas
-      expect(bank.transactions.length, equals(100)); // Todos deben haberse generado (unicos)
+      //aunque en el mundo real usaria muchos mas (36 caracteres por lo que 36*36=1296 posibilidades)
+      expect(bank.transactions.length, equals(1296)); // Todos deben haberse generado (unicos)
     });
   });
 }
