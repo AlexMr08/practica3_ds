@@ -79,29 +79,22 @@ class _MyHomePageState extends State<MyHomePage> {
         double amount = double.parse(_amountController.text);
         String account = selectedAccount1!;
         setState(() {
-          bankService.accounts[account]?.deposit(amount);
+          bankService.deposit(account, amount);
         });
-      //bankService.deposit(account, amount);
       case Transactions.retirar:
         double amount = double.parse(_amountController.text);
         String account = selectedAccount1!;
         setState(() {
-          bankService.accounts[account]?.withdraw(amount);
+          bankService.withdraw(account, amount);
         });
-      //bankService.withdraw(account, amount);
+      //
       case Transactions.enviar:
         double amount = double.parse(_amountController.text);
-        String account = selectedAccount1!;
-        String other = selectedAccount2!;
+        String sender = selectedAccount1!;
+        String recipient = selectedAccount2!;
         setState(() {
-          Account fr = bankService.accounts[account]!;
-          Account to = bankService.accounts[other]!;
-          if (fr.balance >= amount) {
-            fr.withdraw(amount);
-            to.deposit(amount);
-          }
+          bankService.transfer(sender, recipient, amount);
         });
-      //bankService.transfer(sender, recipient, amount);
     }
   }
 
@@ -162,14 +155,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   selectedAccount1 = key1;
                   selectedAccount2 = key2;
                 });
-                print('Cuenta 1 seleccionada: $selectedAccount1');
-                print('Cuenta 2 seleccionada: $selectedAccount2');
               },
             ),
             SizedBox(height: 8),
             FilledButton.tonal(
               onPressed: bankService.accounts.isNotEmpty ? _doOperation : null,
-              child: const Text('Crear cuenta'),
+              child: const Text('Realizar operacion'),
             ),
             SizedBox(height: 8),
           ],

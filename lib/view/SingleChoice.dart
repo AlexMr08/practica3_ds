@@ -36,19 +36,19 @@ class _SingleChoiceState extends State<SingleChoice> {
         ButtonSegment<Transactions>(
           value: Transactions.ingresar,
           label: const Text('Ingresar'),
-          icon: const Icon(Icons.calendar_view_day),
+          icon: const Icon(Icons.savings),
           enabled: widget.cuentasDisponibles,
         ),
         ButtonSegment<Transactions>(
           value: Transactions.retirar,
           label: Text('Retirar'),
-          icon: Icon(Icons.calendar_view_week),
+          icon: Icon(Icons.money_off),
           enabled: widget.cuentasDisponibles,
         ),
         ButtonSegment<Transactions>(
           value: Transactions.enviar,
           label: const Text('Enviar'),
-          icon: const Icon(Icons.calendar_view_month),
+          icon: const Icon(Icons.move_down),
           enabled: widget.dosCuentasMin,
         ),
       ],
