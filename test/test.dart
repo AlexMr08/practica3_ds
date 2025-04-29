@@ -97,7 +97,7 @@ void main() {
       //Es un mapa con la id como indice por lo que la longitud es la cantidad de indices distintos
       //La cantidad de caracteres del generador esta puesta a 2 para que estemos seguros
       //aunque en el mundo real usaria muchos mas (36 caracteres por lo que 36*36=1296 posibilidades)
-      expect(bank.transactions.length, equals(1296)); // Todos deben haberse generado (unicos)
+      expect(bank.transactions.length, equals(1296)); // Si se duplican se sobreescribiria alguno
     });
   });
 }
